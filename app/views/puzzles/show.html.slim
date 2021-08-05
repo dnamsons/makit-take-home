@@ -1,0 +1,11 @@
+p#notice = notice
+
+h1= @puzzle.title
+
+div
+  - @puzzle.contents.lines.each do |line|
+    div class="sudoku-row"
+      - formatted_puzzle_row(line).each do |cell|
+        div class="sudoku-cell"= cell
+
+=< link_to 'Back', puzzles_path

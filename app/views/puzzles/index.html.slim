@@ -1,0 +1,20 @@
+h1 Listing puzzles
+
+table
+  thead
+    tr
+      th Title
+      th
+      th
+      th
+
+  tbody
+    - @puzzles.each do |puzzle|
+      tr
+        td = puzzle.title
+        td = link_to 'Show', puzzle
+        td = link_to 'Destroy', puzzle, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Puzzle', new_puzzle_path

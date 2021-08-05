@@ -1,0 +1,15 @@
+= form_for @puzzle do |f|
+  - if @puzzle.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@puzzle.errors.count, "error")} prohibited this puzzle from being saved:"
+      ul
+        - @puzzle.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content_file
+    = f.file_field :content_file
+  .actions = f.submit
